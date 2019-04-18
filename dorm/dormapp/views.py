@@ -13,7 +13,7 @@ def query(request):
     result = Record.objects.filter(college=college, available=True)
     q = Q()
     for k in keyword:
-        q = q | Q(college__contains=k) | Q(note__contains=k) 
+        q = q | Q(college__contains=k) | Q(note__contains=k) | Q(contact__contains=k)
     result = result.filter(q)
 
     result_json = serializers.serialize('json', result)
@@ -22,7 +22,11 @@ def query(request):
     return render(request, "index.html", {"data": result, "datalength": len(result)})
 
 def index(request):
-    return render(request, "index.html")
+    result = Record.objects.filter(available=True)
+    result_json = serializers.serialize('json', result)
+    result = json.loads(result_json)
+
+    return render(request, "index.html", {"data": result, "datalength": len(result)})
 
 
 def add(request):
@@ -31,11 +35,11 @@ def add(request):
     contact = request.GET['contact']
     newRecord = Record(college = college, note=note, contact = contact)
     newRecord.save()
-    return HttpResponse("Add Success.")
+    return render(request, "success.html", {"message":"Add Success."})
 
 def delete(request):
     id = request.GET['id']
     record = Record.objects.get(id = id)
     record.available = False
     record.save()
-    return HttpResponse("Delete Success.")
+    return render(request, 'success.html', {"message": "Delete Success."})
