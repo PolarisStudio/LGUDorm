@@ -64,7 +64,7 @@
     <table width="100%" style="font-size: 12pt">
         <thead>
             <td>ID</td>
-            <td>时间</td>
+            <!-- <td>时间</td> -->
             <td>书院</td>
             <td>需求</td>
             <td>联系方式</td>
@@ -73,9 +73,9 @@
         {% for d in data %}
             <tr>
                 <td width="5%">{{d.pk}}</td>
-                <td width="20%">{{d.fields.time}}</td>
+                <!-- <td width="20%">{{d.fields.time}}</td> -->
                 <td width="5%">{{d.fields.college}}</td>
-                <td width="40%">{{d.fields.note}}</td>
+                <td width="60%">{{d.fields.note}}</td>
                 <td width="15%">{{d.fields.contact}}</td>
                 <td width="15%">
                     
