@@ -6,42 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LGU 宿舍需求平台</title>
 </head>
-<body>
-    <div >
-    <h1 style="display:inline;"><a href="/" style="text-decoration: none;
+<body style="width: calc(100% - 16px);">
+    <div style="width: 100%; display: flex; flex-direction: column  ; justify-content: space-between">
+    <h1 ><a href="/" style="text-decoration: none;
         color: black;">LGU 宿舍需求平台</a></h1>
-    <div style="float: right">
-    <a href="http://www.ipolaris.club/" style="display:inline; " >北极星工作室</a>
-    <a href="https://github.com/PolarisStudio/LGUDorm" style="display:inline;">GitHub Link</a>
+    <div style="display: flex; flex-direction: row; align-items: flex-end; align-self: flex-end;">
+    <a href="http://www.ipolaris.club/" >北极星工作室</a>
+    <a href="https://github.com/PolarisStudio/LGUDorm" style="margin: 0 10px">GitHub Link</a>
     </div>
     </div>
     <br>
-    <div style="width: 100%;">
-    <form action="/query" method="get" style="width: 100%; ">
-        <select name="college" id="" style="width: 20%; font-size: 12pt">
-            <option value="逸夫">逸夫</option>
-            <option value="学勤">学勤</option>
-            <option value="思廷">思廷</option>
-            <option value="祥波">祥波</option>
-        </select>
-        <input type="text" name="keyword" placeholder="可以用空格分隔关键字" style="width: 50%; font-size: 12pt"/>
-        <input type="submit" value="搜索" style="width: 25%; font-size: 12pt; " >
-    </form>
-    </div>
-
-    <hr>
-
-    <div style="width: 100%">
-    <form action="/add" method="get" style="width: 100%; ">
+    <br>
+    <div>
+    <form action="/query" method="get" style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around ">
         <select name="college" id="" style="width: 15%; font-size: 12pt">
             <option value="逸夫">逸夫</option>
             <option value="学勤">学勤</option>
             <option value="思廷">思廷</option>
             <option value="祥波">祥波</option>
         </select>
-        <input type="text" name="note" placeholder="需求备注" style="width: 30%; font-size: 12pt"/>
-        <input type="text" name="contact" placeholder="联系方式" style="width: 30%; font-size: 12pt"/>
-        <input type="submit" value="提交需求" style="width: 20%; font-size: 12pt;" >
+        <input type="text" name="keyword" placeholder="可以用空格分隔关键字" style="width: 55%; font-size: 12pt"/>
+        <input type="submit" value="搜索" style="width: 20%; font-size: 12pt; " >
+    </form>
+    </div>
+
+    <hr>
+
+    <div style="width: 100%">
+    <form action="/add" method="get" style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around ">
+        <select name="college" id="" style="width: 15%; font-size: 12pt">
+            <option value="逸夫">逸夫</option>
+            <option value="学勤">学勤</option>
+            <option value="思廷">思廷</option>
+            <option value="祥波">祥波</option>
+        </select>
+        <input type="text" name="note" placeholder="需求备注" style="width: 55%; font-size: 12pt"/>
+        <input type="text" name="contact" placeholder="联系方式" style="width: 20%; font-size: 12pt"/>
+        <input type="submit" value="提交需求" style="width: 95%; font-size: 12pt; margin-top: 10px; margin-left: auto; margin-right: auto;" >
     </form>
     </div>
 
