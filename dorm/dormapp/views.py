@@ -21,7 +21,7 @@ def query(request):
 
     return render(request, "index.html", {"data": result, "datalength": len(result)})
 
-def index(request):
+def index(request):     
     result = Record.objects.filter(available=True)
     result_json = serializers.serialize('json', result)
     result = json.loads(result_json)
@@ -30,16 +30,31 @@ def index(request):
 
 
 def add(request):
+    ip = ""
+    try:
+        ip = request.META.get("HTTP_X_FORWARDED_FOR", "")
+        if not ip:
+            ip = request.META.get('REMOTE_ADDR', "")
+    except:
+        pass
+   
     college = request.GET['college']
     note = request.GET['note']
     contact = request.GET['contact']
-    newRecord = Record(college = college, note=note, contact = contact)
+    newRecord = Record(college = college, note=note, contact = contact, IPadd = ip)
     newRecord.save()
     return render(request, "success.html", {"message":"Add Success."})
 
 def delete(request):
+    ip = ""
+    try:
+        ip = request.META.get("HTTP_X_FORWARDED_FOR", "")
+        if not ip:
+            ip = request.META.get('REMOTE_ADDR', "")
+    except:
+        pass
+   
     id = request.GET['id']
-    record = Record.objects.get(id = id)
-    record.available = False
+    record = Record.objects.get(id = id, IPdelete = ip, available = False)
     record.save()
     return render(request, 'success.html', {"message": "Delete Success."})
