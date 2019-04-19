@@ -25,4 +25,4 @@ urlpatterns = [
     path('query/', views.query),
     path('delete/', views.delete),
     path("", views.index)
-] + static(settings.STATIC_ROOT, document_root=settings.STATAIC_ROOT)
+] + static(settings.STATIC_ROOT, document_root=settings.STATIC_ROOT)
