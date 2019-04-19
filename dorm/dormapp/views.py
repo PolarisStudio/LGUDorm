@@ -55,6 +55,8 @@ def delete(request):
         pass
    
     id = request.GET['id']
-    record = Record.objects.get(id = id, IPdelete = ip, available = False)
+    record = Record.objects.get(id = id)
+    record.IPdelete = ip
+    record.available = False
     record.save()
     return render(request, 'success.html', {"message": "Delete Success."})
