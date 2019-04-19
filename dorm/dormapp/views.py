@@ -56,7 +56,10 @@ def delete(request):
    
     id = request.GET['id']
     record = Record.objects.get(id = id)
-    record.IPdelete = ip
-    record.available = False
-    record.save()
-    return render(request, 'success.html', {"message": "Delete Success."})
+    if record.IPadd == None or record.IPid == ip:
+        record.IPdelete = ip
+        record.available = False
+        record.save()
+        return render(request, 'success.html', {"message": "Delete Success."})
+    else:
+        return render(request, "success.html", {"message": "没有足够的权限删除，请联系管理员。"})
