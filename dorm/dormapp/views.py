@@ -56,7 +56,7 @@ def delete(request):
    
     id = request.GET['id']
     record = Record.objects.get(id = id)
-    if record.IPadd == None or record.IPid == ip:
+    if record.IPadd == None or record.IPadd == ip:
         record.IPdelete = ip
         record.available = False
         record.save()
